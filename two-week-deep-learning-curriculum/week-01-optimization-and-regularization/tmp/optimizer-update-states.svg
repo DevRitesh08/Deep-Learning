@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 600" role="img" aria-labelledby="title desc">
+  <title id="title">Optimizer update states</title>
+  <desc id="desc">A diagram comparing the state used by SGD, Momentum, RMSProp, and Adam before updating parameters.</desc>
+  <rect width="1300" height="600" fill="#0f172a" rx="24"/>
+  <text x="60" y="72" fill="#f8fafc" font-family="Arial, sans-serif" font-size="38" font-weight="700">One gradient, four update rules</text>
+  <text x="60" y="112" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="22">Backpropagation gives a mini-batch gradient g<tspan baseline-shift="sub" font-size="16">t</tspan>. The optimizer decides what state to carry forward.</text>
+  <rect x="72" y="180" width="190" height="100" rx="16" fill="#1d4ed8"/>
+  <text x="167" y="224" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="27" font-weight="700">Gradient</text>
+  <text x="167" y="258" text-anchor="middle" fill="#dbeafe" font-family="Arial, sans-serif" font-size="24">g<tspan baseline-shift="sub" font-size="16">t</tspan> = ∇J</text>
+  <path d="M280 230 H350" stroke="#f8fafc" stroke-width="6" marker-end="url(#arrow)"/>
+  <g font-family="Arial, sans-serif">
+    <rect x="380" y="145" width="170" height="160" rx="16" fill="#1e293b" stroke="#38bdf8" stroke-width="3"/>
+    <text x="465" y="190" text-anchor="middle" fill="#7dd3fc" font-size="25" font-weight="700">SGD</text>
+    <text x="465" y="228" text-anchor="middle" fill="#f8fafc" font-size="21">no state</text>
+    <text x="465" y="264" text-anchor="middle" fill="#cbd5e1" font-size="19">θ ← θ - ηg<tspan baseline-shift="sub" font-size="13">t</tspan></text>
+    <rect x="585" y="145" width="190" height="160" rx="16" fill="#1e293b" stroke="#fbbf24" stroke-width="3"/>
+    <text x="680" y="190" text-anchor="middle" fill="#fde68a" font-size="25" font-weight="700">Momentum</text>
+    <text x="680" y="228" text-anchor="middle" fill="#f8fafc" font-size="21">mean direction m<tspan baseline-shift="sub" font-size="14">t</tspan></text>
+    <text x="680" y="264" text-anchor="middle" fill="#cbd5e1" font-size="18">m ← βm + (1-β)g</text>
+    <rect x="810" y="145" width="190" height="160" rx="16" fill="#1e293b" stroke="#a78bfa" stroke-width="3"/>
+    <text x="905" y="190" text-anchor="middle" fill="#c4b5fd" font-size="25" font-weight="700">RMSProp</text>
+    <text x="905" y="228" text-anchor="middle" fill="#f8fafc" font-size="21">recent scale v<tspan baseline-shift="sub" font-size="14">t</tspan></text>
+    <text x="905" y="264" text-anchor="middle" fill="#cbd5e1" font-size="18">v ← ρv + (1-ρ)g²</text>
+  </g>
+  <path d="M1000 230 H1060" stroke="#f8fafc" stroke-width="6" marker-end="url(#arrow)"/>
+  <rect x="1065" y="145" width="170" height="160" rx="16" fill="#14532d" stroke="#4ade80" stroke-width="3"/>
+  <text x="1150" y="190" text-anchor="middle" fill="#bbf7d0" font-family="Arial, sans-serif" font-size="23" font-weight="700">Adam</text>
+  <text x="1150" y="224" text-anchor="middle" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18">m and v</text>
+  <text x="1150" y="257" text-anchor="middle" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="16">bias corrected</text>
+  <line x1="70" y1="360" x2="1235" y2="360" stroke="#475569" stroke-width="2"/>
+  <text x="70" y="415" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="700">Read the state, then reconstruct the update</text>
+  <text x="70" y="462" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="23">Momentum normalizes neither magnitude nor per-parameter learning rate. RMSProp tracks only squared gradients.</text>
+  <text x="70" y="505" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="23">Adam combines both: θ ← θ - η m̂ / (√v̂ + ε).</text>
+  <rect x="70" y="535" width="1165" height="36" rx="10" fill="#1e293b"/>
+  <text x="652" y="560" text-anchor="middle" fill="#fbbf24" font-family="Arial, sans-serif" font-size="20">Learning rate η still matters. Optimizer choice does not repair corrupt data, a wrong loss, or an unstable setup.</text>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#f8fafc"/></marker>
+  </defs>
+</svg>
