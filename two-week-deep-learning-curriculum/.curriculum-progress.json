@@ -1,0 +1,14 @@
+{
+  "curriculum_root": "two-week-deep-learning-curriculum",
+  "last_completed_unit": "week-02-cnn-foundations",
+  "active_unit": null,
+  "status": "complete",
+  "last_passed_gates": [
+    "scope and transcript coverage",
+    "source register",
+    "local navigation",
+    "visual manifests",
+    "static curriculum validation"
+  ],
+  "next_action": "Continue with CNN architectures, augmentation, and transfer learning only after reviewing both week-end drills."
+}

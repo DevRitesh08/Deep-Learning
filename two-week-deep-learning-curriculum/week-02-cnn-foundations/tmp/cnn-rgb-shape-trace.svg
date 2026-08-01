@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 650" role="img" aria-labelledby="title desc">
+  <title id="title">RGB CNN tensor shape trace</title>
+  <desc id="desc">A diagram tracing a batch of 32 by 32 RGB images through convolution, pooling, flattening, and a three-class softmax output.</desc>
+  <rect width="1400" height="650" fill="#0f172a" rx="24"/>
+  <text x="60" y="70" fill="#f8fafc" font-family="Arial, sans-serif" font-size="38" font-weight="700">RGB CNN: shape trace and teaching jobs</text>
+  <text x="60" y="110" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="22">B is batch size. Channels are feature maps; the last axis is not a spatial dimension.</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="60" y="205" width="160" height="210" rx="16" fill="#1e293b" stroke="#fb7185" stroke-width="4"/>
+    <text x="140" y="250" text-anchor="middle" fill="#fecdd3" font-size="25" font-weight="700">RGB input</text>
+    <text x="140" y="286" text-anchor="middle" fill="#f8fafc" font-size="21">(B, 32, 32, 3)</text>
+    <rect x="84" y="320" width="45" height="55" fill="#ef4444"/><rect x="134" y="320" width="45" height="55" fill="#22c55e"/><rect x="184" y="320" width="20" height="55" fill="#3b82f6"/>
+    <text x="140" y="402" text-anchor="middle" fill="#cbd5e1" font-size="18">R, G, B channels</text>
+    <path d="M230 310 H298" stroke="#f8fafc" stroke-width="6" marker-end="url(#arrow)"/>
+    <rect x="310" y="205" width="190" height="210" rx="16" fill="#1e293b" stroke="#38bdf8" stroke-width="4"/>
+    <text x="405" y="250" text-anchor="middle" fill="#7dd3fc" font-size="25" font-weight="700">Conv2D</text>
+    <text x="405" y="285" text-anchor="middle" fill="#f8fafc" font-size="20">16 filters, 3x3, same</text>
+    <text x="405" y="322" text-anchor="middle" fill="#f8fafc" font-size="21">(B, 32, 32, 16)</text>
+    <text x="405" y="365" text-anchor="middle" fill="#cbd5e1" font-size="18">learn local patterns</text>
+    <text x="405" y="392" text-anchor="middle" fill="#cbd5e1" font-size="18">then ReLU</text>
+    <path d="M510 310 H578" stroke="#f8fafc" stroke-width="6" marker-end="url(#arrow)"/>
+    <rect x="590" y="205" width="180" height="210" rx="16" fill="#1e293b" stroke="#fbbf24" stroke-width="4"/>
+    <text x="680" y="250" text-anchor="middle" fill="#fde68a" font-size="25" font-weight="700">MaxPool2D</text>
+    <text x="680" y="285" text-anchor="middle" fill="#f8fafc" font-size="20">2x2, stride 2</text>
+    <text x="680" y="322" text-anchor="middle" fill="#f8fafc" font-size="21">(B, 16, 16, 16)</text>
+    <text x="680" y="365" text-anchor="middle" fill="#cbd5e1" font-size="18">summarize local</text>
+    <text x="680" y="392" text-anchor="middle" fill="#cbd5e1" font-size="18">responses per channel</text>
+    <path d="M780 310 H848" stroke="#f8fafc" stroke-width="6" marker-end="url(#arrow)"/>
+    <rect x="860" y="205" width="190" height="210" rx="16" fill="#1e293b" stroke="#a78bfa" stroke-width="4"/>
+    <text x="955" y="250" text-anchor="middle" fill="#c4b5fd" font-size="25" font-weight="700">Conv + Pool</text>
+    <text x="955" y="285" text-anchor="middle" fill="#f8fafc" font-size="20">32 filters then 2x2</text>
+    <text x="955" y="322" text-anchor="middle" fill="#f8fafc" font-size="21">(B, 8, 8, 32)</text>
+    <text x="955" y="365" text-anchor="middle" fill="#cbd5e1" font-size="18">deeper feature maps</text>
+    <text x="955" y="392" text-anchor="middle" fill="#cbd5e1" font-size="18">smaller spatial grid</text>
+    <path d="M1060 310 H1128" stroke="#f8fafc" stroke-width="6" marker-end="url(#arrow)"/>
+    <rect x="1140" y="205" width="200" height="210" rx="16" fill="#14532d" stroke="#4ade80" stroke-width="4"/>
+    <text x="1240" y="250" text-anchor="middle" fill="#bbf7d0" font-size="25" font-weight="700">Flatten + Dense</text>
+    <text x="1240" y="285" text-anchor="middle" fill="#f8fafc" font-size="20">(B, 2048) -> (B, 3)</text>
+    <text x="1240" y="322" text-anchor="middle" fill="#f8fafc" font-size="21">softmax probabilities</text>
+    <text x="1240" y="365" text-anchor="middle" fill="#cbd5e1" font-size="18">classification head</text>
+  </g>
+  <line x1="60" y1="475" x2="1340" y2="475" stroke="#475569" stroke-width="2"/>
+  <text x="60" y="525" fill="#f8fafc" font-family="Arial, sans-serif" font-size="27" font-weight="700">Parameter insight</text>
+  <text x="60" y="568" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="22">A 3x3 RGB filter has 3x3x3 weights plus one bias. Sixteen filters create sixteen maps. Pooling changes size but has no learned kernel.</text>
+  <text x="60" y="610" fill="#fbbf24" font-family="Arial, sans-serif" font-size="21">For mutually exclusive classes: use 3 softmax outputs and a categorical cross-entropy that matches the label encoding.</text>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#f8fafc"/></marker>
+  </defs>
+</svg>
