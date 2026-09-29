@@ -16,13 +16,19 @@ NLP/
 │   └── NLP_PREPROCESSING_MASTER_NOTES.md       # 📖 Comprehensive Master Reference Guide
 │
 ├── 2. Text Pre-Processing/                     # Classical Feature Extraction (Text -> Sparse Vectors)
-│   ├── 00_vectorization_intro.ipynb            # Introduction to Vectorization
-│   └── 01_one_hot_encoding.ipynb               # One-Hot Encoding implementation & analysis
-│   └── [Upcoming: Bag of Words (BoW), TF-IDF]
+│   ├── 01_one_hot_encoding.ipynb               # One-Hot Encoding implementation & analysis
+│   ├── 02_bag_of_words_practical.ipynb         # Bag of Words & CountVectorizer practical
+│   ├── SMSSpam.txt                             # SMS spam classification dataset
+│   ├── README.md                               # Module overview & index
+│   └── NLP_VECTORIZATION_MASTER_NOTES.md       # 📖 Vectorization & Word Embeddings Master Guide
 │
-└── 3. Text Pre-Processing/                     # Dense Word Embeddings (Semantic Vectors)
-    ├── 00_word_embeddings_intro.ipynb          # Introduction to Embeddings
-    └── [Upcoming: Word2Vec, Average Word2Vec, Gensim]
+├── 3. Text Pre-Processing/                     # Dense Word Embeddings (Semantic Vectors)
+│   ├── 01_word2vec_practical_implementation.ipynb # Pretrained Google News 300, analogies & custom Word2Vec
+│   └── README.md                               # Module overview & index
+│
+└── Projects/                                   # End-to-End Classification Pipelines
+    ├── 01_spam_ham_classification_tfidf.ipynb  # Spam classification using TF-IDF & MultinomialNB
+    └── 02_spam_ham_classification_bow_and_tfidf.ipynb # Spam classification comparing BoW and TF-IDF
 ```
 
 ---
@@ -37,5 +43,7 @@ flowchart LR
     D --> E["4. Downstream Tasks\n(Sentiment, Spam, QA,\nTranslation)"]
 ```
 
-For exhaustive definitions, pros/cons, and cheat-sheets for Module 1, refer to:
-👉 **[NLP Pre-Processing Master Notes](./1.%20Text%20Pre-Processing/NLP_PREPROCESSING_MASTER_NOTES.md)**
+For exhaustive definitions, pros/cons, and cheat-sheets:
+👉 **[Module 1: Pre-Processing Master Notes](./1.%20Text%20Pre-Processing/NLP_PREPROCESSING_MASTER_NOTES.md)**  
+👉 **[Module 2 & 3: Vectorization & Word Embeddings Master Notes](./2.%20Text%20Pre-Processing/NLP_VECTORIZATION_MASTER_NOTES.md)**  
+👉 **[NLP Core Concepts & Technical Question Bank](./NLP_TECHNICAL_QUESTION_BANK.md)**

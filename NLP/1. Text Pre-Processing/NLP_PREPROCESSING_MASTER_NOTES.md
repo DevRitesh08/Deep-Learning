@@ -75,7 +75,7 @@ flowchart TD
 
 ## 2. Core Foundational Vocabulary
 
-To navigate NLP literature and tutorials, understand these 5 core building blocks:
+To navigate NLP literature, research, and production systems, understand these 5 core building blocks:
 
 | Term | Intuitive Definition | Real-World Analogy | Mathematical / Formal Meaning |
 | :--- | :--- | :--- | :--- |
@@ -357,9 +357,9 @@ import nltk
 nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
 
-text = "This is a great tutorial on natural language processing."
+text = "This is a great book on natural language processing."
 filtered = [word for word in text.split() if word.lower() not in stop_words]
-# Result: ['great', 'tutorial', 'natural', 'language', 'processing.']
+# Result: ['great', 'book', 'natural', 'language', 'processing.']
 ```
 
 #### Crucial Dilemma: When to REMOVE vs When to KEEP Stopwords
