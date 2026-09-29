@@ -27,8 +27,10 @@ NLP/
 │   └── README.md                               # Module overview & index
 │
 └── Projects/                                   # End-to-End Classification Pipelines
-    ├── 01_spam_ham_classification_tfidf.ipynb  # Spam classification using TF-IDF & MultinomialNB
-    └── 02_spam_ham_classification_bow_and_tfidf.ipynb # Spam classification comparing BoW and TF-IDF
+    ├── 01_spam_ham_classification_bow_and_tfidf.ipynb # Spam classification with BoW & TF-IDF (leakage-free)
+    ├── 02_spam_ham_classification_word2vec.ipynb      # Spam classification with Word2Vec & AvgWord2Vec
+    ├── 03_kindle_review_sentiment_analysis.ipynb      # Kindle review sentiment analysis (BoW, TF-IDF & Word2Vec)
+    └── README.md                                      # Projects index & best practices
 ```
 
 ---

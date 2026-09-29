@@ -1,1 +1,9 @@
 MINOR/CNN_ON_CIFER10/data/cifar-10-python.tar.gz
+
+skill-observations/
+.ipynb_checkpoints/
+NLP/Projects/all_kindle_review.csv
+NLP/Projects/PROJECT_RESUME_MATCHER_GUIDE.md
+NLP/Projects/*.csv
+NLP/Projects/TICKET_TRIAGE_CLASSIFIER_PROJECT_GUIDE.md
+NLP/Projects/*_GUIDE.md
